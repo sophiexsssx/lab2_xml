@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="XmlAnalyzer.Tests/XmlAnalyzer.Tests.csproj" />
+  <Project Path="XmlAnalyzer/XmlAnalyzer.csproj" />
+  <Project Path="XmlAnalyzerApp/XmlAnalyzerApp.csproj" />
+</Solution>

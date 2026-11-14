@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Інший набір конференцій для перевірки «Відкрити XML…».
+     Тут є атрибут level, якого немає в conferences.xml, тож у програмі з'явиться ще один випадний список. -->
+<Conferences>
+  <Conference title="Великі дані в медицині" topic="Інформатика" organizer="Медичний факультет" city="Дніпро" level="всеукраїнська" format="очно" fee="400">
+    <Dates start="2027-02-16" end="2027-02-17"/>
+    <SubmissionDeadline>2027-01-10</SubmissionDeadline>
+  </Conference>
+  <Conference title="Комп'ютерний зір і робототехніка" topic="Інформатика" organizer="Факультет кібернетики" city="Київ" level="міжнародна" format="змішано" fee="1500" language="англійська">
+    <Dates start="2027-03-22" end="2027-03-25"/>
+    <SubmissionDeadline>2027-01-31</SubmissionDeadline>
+  </Conference>
+  <Conference title="Диференціальні рівняння та їх застосування" topic="Математика" organizer="Механіко-математичний факультет" city="Чернівці" level="всеукраїнська">
+    <Dates start="2027-04-07" end="2027-04-08"/>
+  </Conference>
+  <Conference title="Зелена енергетика" topic="Фізика" organizer="Інститут енергетики" city="Дніпро" format="онлайн" fee="0">
+    <Dates start="2027-04-27" end="2027-04-28"/>
+    <SubmissionDeadline>2027-03-20</SubmissionDeadline>
+  </Conference>
+  <Conference title="Мовні моделі та обробка тексту" topic="Філологія" organizer="Інститут філології" city="Київ" level="міжнародна" format="онлайн" language="англійська">
+    <Dates start="2027-05-13" end="2027-05-14"/>
+    <SubmissionDeadline>2027-04-01</SubmissionDeadline>
+  </Conference>
+  <Conference title="Екологія Карпат" topic="Біологія" organizer="Біологічний факультет" city="Ужгород" level="регіональна" format="очно" fee="250">
+    <Dates start="2027-06-03" end="2027-06-05"/>
+  </Conference>
+  <Conference title="Захист інформації в банківських системах" topic="Інформатика" organizer="Інститут кібернетики" city="Львів" level="всеукраїнська" format="очно" fee="900">
+    <Dates start="2027-09-15" end="2027-09-16"/>
+    <SubmissionDeadline>2027-08-01</SubmissionDeadline>
+  </Conference>
+  <Conference title="Історія науки в Україні" topic="Історія" organizer="Історичний факультет" city="Київ">
+    <Dates start="2027-10-20" end="2027-10-21"/>
+    <SubmissionDeadline>2027-09-15</SubmissionDeadline>
+  </Conference>
+</Conferences>

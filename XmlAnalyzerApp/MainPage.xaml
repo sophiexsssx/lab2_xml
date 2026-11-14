@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:services="clr-namespace:XmlAnalyzerApp.Services"
+             x:Class="XmlAnalyzerApp.MainPage"
+             Title="Аналіз XML: конференції"
+             BackgroundColor="#FFFFFF">
+
+    <ContentPage.Resources>
+        <Color x:Key="Rose">#A3245A</Color>
+        <Color x:Key="Plum">#3B1F2B</Color>
+        <Color x:Key="Petal">#F4B6CC</Color>
+        <Color x:Key="Blush">#FCE4EC</Color>
+        <Color x:Key="Muted">#8A6878</Color>
+        <Color x:Key="Line">#F4D7E2</Color>
+
+        <Style x:Key="LinkButton" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="TextColor" Value="{StaticResource Rose}" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="10,4" />
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="MinimumHeightRequest" Value="32" />
+        </Style>
+        <Style x:Key="PrimaryButton" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource Rose}" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontFamily" Value="OpenSansSemibold" />
+            <Setter Property="Padding" Value="18,6" />
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="MinimumHeightRequest" Value="34" />
+        </Style>
+        <Style x:Key="SoftButton" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource Blush}" />
+            <Setter Property="TextColor" Value="{StaticResource Rose}" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="14,6" />
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="MinimumHeightRequest" Value="34" />
+        </Style>
+        <Style x:Key="SectionTitle" TargetType="Label">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontFamily" Value="OpenSansSemibold" />
+            <Setter Property="TextColor" Value="{StaticResource Muted}" />
+            <Setter Property="Margin" Value="0,0,0,4" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto,*" Padding="24,16,24,20" RowSpacing="14">
+
+        <Grid ColumnDefinitions="*,Auto,Auto,Auto,Auto" ColumnSpacing="2">
+            <VerticalStackLayout VerticalOptions="Center">
+                <Label Text="Аналіз XML: конференції" FontSize="24" FontFamily="OpenSansSemibold" TextColor="{StaticResource Plum}" />
+                <Label x:Name="FileLabel" Text="Файл не відкрито" FontSize="13" TextColor="{StaticResource Muted}" />
+            </VerticalStackLayout>
+            <Button Grid.Column="1" Text="Відкрити XML…" Clicked="OnOpenXmlClicked" Style="{StaticResource LinkButton}"
+                    ToolTipProperties.Text="Відкрити XML-файл з конференціями" />
+            <Button Grid.Column="2" Text="Приклад" Clicked="OnOpenSampleClicked" Style="{StaticResource LinkButton}"
+                    ToolTipProperties.Text="Відкрити вбудований файл conferences.xml" />
+            <Button Grid.Column="3" Text="Про програму" Clicked="OnAboutClicked" Style="{StaticResource LinkButton}" />
+            <Button Grid.Column="4" Text="Вихід" Clicked="OnExitClicked" Style="{StaticResource LinkButton}" />
+        </Grid>
+
+        <Grid Grid.Row="1" ColumnDefinitions="300,*" ColumnSpacing="24">
+
+            <Grid RowDefinitions="Auto,Auto,Auto,*,Auto" RowSpacing="16">
+                <VerticalStackLayout Spacing="0">
+                    <Label Text="СПОСІБ АНАЛІЗУ" Style="{StaticResource SectionTitle}" />
+                    <VerticalStackLayout x:Name="StrategyList" Spacing="0" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="1" Spacing="0">
+                    <Label Text="КЛЮЧОВЕ СЛОВО" Style="{StaticResource SectionTitle}" />
+                    <Border Padding="10,0" StrokeThickness="0" BackgroundColor="#FBF6F8">
+                        <Border.StrokeShape><RoundRectangle CornerRadius="6" /></Border.StrokeShape>
+                        <Entry x:Name="KeywordEntry" Placeholder="у будь-якому атрибуті" TextColor="{StaticResource Plum}"
+                               ClearButtonVisibility="WhileEditing" TextChanged="OnKeywordChanged" Completed="OnSearchClicked" />
+                    </Border>
+                </VerticalStackLayout>
+
+                <Label Grid.Row="2" Text="ЗНАЧЕННЯ АТРИБУТІВ" Style="{StaticResource SectionTitle}" Margin="0,0,0,-12" />
+
+                <ScrollView Grid.Row="3">
+                    <VerticalStackLayout x:Name="FilterList" Spacing="8">
+                        <Label Text="Відкрийте XML-файл — тут з'являться атрибути зі значеннями з файлу."
+                               FontSize="13" TextColor="{StaticResource Muted}" />
+                    </VerticalStackLayout>
+                </ScrollView>
+
+                <Grid Grid.Row="4" ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                    <Button x:Name="SearchButton" Text="Шукати" Clicked="OnSearchClicked" Style="{StaticResource PrimaryButton}" />
+                    <Button Grid.Column="1" Text="Clear" Clicked="OnClearClicked" Style="{StaticResource SoftButton}"
+                            ToolTipProperties.Text="Очистити результати і параметри пошуку" />
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="1" RowDefinitions="Auto,*,Auto" RowSpacing="10">
+                <Label x:Name="StatusLabel" FontSize="14" TextColor="{StaticResource Muted}" LineBreakMode="WordWrap"
+                       Text="Відкрийте XML-файл («Відкрити XML…» або «Приклад»), щоб почати." />
+
+                <Border Grid.Row="1" Stroke="{StaticResource Line}" StrokeThickness="1" Padding="0">
+                    <Border.StrokeShape><RoundRectangle CornerRadius="6" /></Border.StrokeShape>
+                    <CollectionView x:Name="ResultsView" SelectionMode="None">
+                        <CollectionView.EmptyView>
+                            <Label x:Name="EmptyLabel" Text="Тут з'являться результати пошуку." FontSize="14"
+                                   TextColor="{StaticResource Muted}" HorizontalOptions="Center" VerticalOptions="Center" Margin="20" />
+                        </CollectionView.EmptyView>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="services:ResultRow">
+                                <Grid Padding="16,10" RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="2">
+                                    <Label Text="{Binding Title}" FontSize="15" FontFamily="OpenSansSemibold" TextColor="{StaticResource Plum}" />
+                                    <Label Grid.Row="1" Text="{Binding Summary}" FontSize="13" TextColor="{StaticResource Rose}" />
+                                    <Label Grid.Row="2" Text="{Binding Details}" FontSize="12" TextColor="{StaticResource Muted}" LineBreakMode="WordWrap" />
+                                    <BoxView Grid.Row="3" HeightRequest="1" Color="{StaticResource Line}" Margin="0,8,0,-10" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Border>
+
+                <HorizontalStackLayout Grid.Row="2" Spacing="8" HorizontalOptions="End">
+                    <Button x:Name="SaveButton" Text="Зберегти у XML…" Clicked="OnSaveClicked" Style="{StaticResource SoftButton}" IsEnabled="False" />
+                    <Button x:Name="TransformButton" Text="Трансформувати в HTML…" Clicked="OnTransformClicked" Style="{StaticResource PrimaryButton}" IsEnabled="False" />
+                </HorizontalStackLayout>
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>

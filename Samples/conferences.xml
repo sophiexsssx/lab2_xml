@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Наукові конференції. Атрибути fee, format і language є не в усіх вузлах,
+     тому кількість атрибутів у різних <Conference> різна. -->
+<Conferences>
+  <Conference title="Сучасні інформаційні технології" topic="Інформатика" organizer="Факультет комп'ютерних наук" city="Київ" format="очно" fee="800" language="українська">
+    <Dates start="2026-03-12" end="2026-03-14"/>
+    <SubmissionDeadline>2026-02-01</SubmissionDeadline>
+  </Conference>
+  <Conference title="Прикладна математика і моделювання" topic="Математика" organizer="Інститут кібернетики" city="Київ" format="змішано">
+    <Dates start="2026-04-20" end="2026-04-22"/>
+    <SubmissionDeadline>2026-03-10</SubmissionDeadline>
+  </Conference>
+  <Conference title="Штучний інтелект і машинне навчання" topic="Інформатика" organizer="Факультет кібернетики" city="Львів" format="онлайн" fee="0" language="англійська">
+    <Dates start="2026-05-05" end="2026-05-06"/>
+  </Conference>
+  <Conference title="Квантові обчислення: теорія і практика" topic="Фізика" organizer="Фізичний факультет" city="Харків">
+    <Dates start="2026-05-18" end="2026-05-20"/>
+    <SubmissionDeadline>2026-04-01</SubmissionDeadline>
+  </Conference>
+  <Conference title="Кібербезпека критичної інфраструктури" topic="Інформатика" organizer="Інститут кібернетики" city="Одеса" format="очно" fee="1200">
+    <Dates start="2026-06-02" end="2026-06-04"/>
+    <SubmissionDeadline>2026-04-15</SubmissionDeadline>
+  </Conference>
+  <Conference title="Біоінформатика та обробка геномних даних" topic="Біологія" organizer="Біологічний факультет" city="Київ" language="англійська">
+    <Dates start="2026-06-15" end="2026-06-16"/>
+  </Conference>
+  <Conference title="Методи оптимізації" topic="Математика" organizer="Факультет кібернетики" city="Львів" format="онлайн">
+    <Dates start="2026-09-10" end="2026-09-11"/>
+    <SubmissionDeadline>2026-07-31</SubmissionDeadline>
+  </Conference>
+  <Conference title="Обчислювальна лінгвістика" topic="Філологія" organizer="Інститут філології" city="Київ" format="змішано" fee="500" language="українська">
+    <Dates start="2026-10-01" end="2026-10-02"/>
+    <SubmissionDeadline>2026-08-20</SubmissionDeadline>
+  </Conference>
+  <Conference title="Астрофізика й космічні дослідження" topic="Фізика" organizer="Фізичний факультет" city="Одеса" format="очно" fee="600">
+    <Dates start="2026-10-14" end="2026-10-16"/>
+  </Conference>
+  <Conference title="Розподілені системи та хмарні обчислення" topic="Інформатика" organizer="Факультет комп'ютерних наук" city="Харків" format="онлайн" language="англійська">
+    <Dates start="2026-11-03" end="2026-11-04"/>
+    <SubmissionDeadline>2026-09-30</SubmissionDeadline>
+  </Conference>
+  <Conference title="Теорія ймовірностей і статистика" topic="Математика" organizer="Механіко-математичний факультет" city="Київ">
+    <Dates start="2026-11-24" end="2026-11-26"/>
+  </Conference>
+  <Conference title="Цифрові гуманітарні науки" topic="Філологія" organizer="Інститут філології" city="Львів" format="очно" fee="300">
+    <Dates start="2026-12-08" end="2026-12-09"/>
+    <SubmissionDeadline>2026-10-25</SubmissionDeadline>
+  </Conference>
+</Conferences>
